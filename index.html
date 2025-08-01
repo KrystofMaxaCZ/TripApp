@@ -2,32 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spin Task App</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <h1>Spin Task App</h1>
 
+  <button id="toggle-tasks" class="burger-menu">☰ Tasks Menu</button>
+  <button id="toggle-dark-mode">🌙 Dark Mode</button>
+
   <section id="random-name-section">
     <h2>Pick Random Name</h2>
-    <input id="new-player-input" placeholder="Add new player"/>
+    <input id="new-player-input" placeholder="Add new player" />
     <button onclick="addPlayer()">Add Player</button>
     <button onclick="pickRandomPlayer()">Pick</button>
     <p id="selected-player">Selected: -</p>
+    <ul id="player-list"></ul>
   </section>
 
   <section id="wheel-section">
     <h2>Spin the Wheel</h2>
-    <canvas id="wheel" width="300" height="300"></canvas><br>
+    <canvas id="wheel" width="300" height="300"></canvas><br />
     <button onclick="spinWheel()">Spin</button>
     <p id="selected-task">Task: -</p>
     <button onclick="markTaskComplete()">Mark as Completed</button>
   </section>
 
-  <section id="tasks-section">
+  <section id="task-section">
     <h2>Manage Tasks</h2>
-    <input id="new-task-input" placeholder="Add new task"/>
+    <input id="new-task-input" placeholder="Add new task" />
     <button onclick="addTask()">Add Task</button>
     <ul id="task-list"></ul>
   </section>

@@ -1,137 +1,183 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-
 :root {
-  --bg: #f9fafb;
-  --card: #ffffff;
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
-  --text: #111827;
-  --text-light: #6b7280;
-  --danger: #ef4444;
-  --border: #e5e7eb;
-  --highlight: #e0f2fe;
-  --radius: 12px;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  margin: 0;
-  padding: 2rem;
-  line-height: 1.6;
-}
-
-h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  color: var(--primary-dark);
-}
-
-section {
-  background: var(--card);
-  padding: 1.5rem;
-  border-radius: var(--radius);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-  margin-bottom: 2rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-
-input[type="text"],
-input,
-textarea {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  outline: none;
-  margin-right: 0.5rem;
-  width: 100%;
-  max-width: 300px;
-  margin-bottom: 0.5rem;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background 0.2s ease;
-  margin: 0.2rem;
-}
-
-button:hover {
-  background: var(--primary-dark);
-}
-
-button.danger {
-  background: var(--danger);
-}
-
-button.danger:hover {
-  background: #b91c1c;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin: 0.3rem 0;
-  padding: 0.3rem;
-  border-bottom: 1px solid var(--border);
-}
-
-#selected-player,
-#selected-task {
-  background-color: var(--highlight);
-  padding: 1rem;
-  border-radius: var(--radius);
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--primary-dark);
-  margin-top: 1rem;
-  border: 2px solid var(--primary);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-canvas {
-  margin-top: 1rem;
-  border: 4px solid var(--border);
-  border-radius: 50%;
-  background: #f1f5f9;
-}
-
-@media (max-width: 600px) {
+    --primary: #3b82f6;
+    --primary-dark: #1e40af;
+    --background: #f9fafb;
+    --text-color: #111827;
+    --accent: #10b981;
+    --error: #ef4444;
+    --burger-bg: #2563eb;
+    --burger-text: #fff;
+  }
+  
   body {
-    padding: 1rem;
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2rem;
+    transition: background-color 0.3s, color 0.3s;
   }
-
-  input,
+  
+  h1, h2 {
+    color: var(--primary-dark);
+  }
+  
   button {
-    width: 100%;
-    margin-bottom: 0.5rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1rem;
   }
-
+  
+  button:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  input {
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  #player-list li,
+  #task-list li,
+  #scores-list li {
+    padding: 0.4rem 0.6rem;
+    margin-bottom: 0.3rem;
+    background-color: #e0e7ff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #player-list li.selected {
+    background-color: var(--accent);
+    color: white;
+    font-weight: 600;
+  }
+  
+  #player-list li button.delete-btn {
+    background-color: var(--error);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  
+  #player-list li button.delete-btn:hover {
+    background-color: #b91c1c;
+  }
+  
+  #task-list li button.delete-btn {
+    background-color: var(--error);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  
+  #task-list li button.delete-btn:hover {
+    background-color: #b91c1c;
+  }
+  
+  #selected-player,
+  #selected-task {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-top: 0.5rem;
+  }
+  
+  #selected-player {
+    color: var(--accent);
+  }
+  
   canvas {
-    width: 100% !important;
-    height: auto !important;
+    margin-top: 1rem;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
   }
-}
+  
+  #task-section {
+    margin-top: 0.5rem;
+    transition: max-height 0.4s ease;
+    overflow: hidden;
+    max-height: 1000px; /* visible by default */
+  }
+  
+  .burger-menu {
+    background-color: var(--burger-bg);
+    color: var(--burger-text);
+    font-size: 1.2rem;
+    border-radius: 6px;
+    border: none;
+    padding: 0.4rem 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+  }
+  
+  .burger-menu:hover {
+    background-color: var(--primary-dark);
+  }
+  
+  /* DARK MODE */
+  .dark-mode {
+    --background: #121212;
+    --text-color: #e5e7eb;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --accent: #22c55e;
+    --error: #ef4444;
+    --burger-bg: #1e3a8a;
+    --burger-text: #cbd5e1;
+  }
+  
+  .dark-mode body {
+    background-color: var(--background);
+    color: var(--text-color);
+  }
+  
+  .dark-mode #player-list li,
+  .dark-mode #task-list li,
+  .dark-mode #scores-list li {
+    background-color: #1e293b;
+  }
+  
+  .dark-mode #player-list li.selected {
+    background-color: var(--accent);
+    color: #111827;
+  }
+  
+  .dark-mode #player-list li button.delete-btn,
+  .dark-mode #task-list li button.delete-btn {
+    background-color: #dc2626;
+  }
+  
+  .dark-mode #player-list li button.delete-btn:hover,
+  .dark-mode #task-list li button.delete-btn:hover {
+    background-color: #991b1b;
+  }
+  
+  .dark-mode .burger-menu {
+    background-color: var(--burger-bg);
+    color: var(--burger-text);
+  }
+  
+  .dark-mode .burger-menu:hover {
+    background-color: var(--primary-dark);
+  }
+  
